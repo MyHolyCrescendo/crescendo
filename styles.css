@@ -178,6 +178,28 @@ h1, h2 {
   line-height: 1.1;
   margin-top: -10px;
 }
+/* --- GOLD SHIMMER EFFECT --- */
+.title-sub {
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    #c3a35b 0%,
+    #e7d7a2 20%,
+    #c3a35b 40%,
+    #b4933e 60%,
+    #e7d7a2 80%,
+    #c3a35b 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 8s infinite linear;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
 
 /* Simple centered gold line under title */
 .headline::after {
