@@ -92,13 +92,25 @@ body{
     width: 80px;
   }
 }
-/* --- GOLD UNDERLINE BELOW HEADLINE --- */
+/* --- GOLD BRUSHSTROKE UNDER TITLE --- */
 .headline::after {
   content: "";
   display: block;
-  width: 80px;               /* length of the line */
-  height: 2px;               /* thickness */
-  background: var(--accent); /* uses your #C3A35B gold */
-  margin: 12px auto 0;       /* centers it and adds space above */
-  border-radius: 2px;        /* soft edges */
+  width: 180px;                     /* make it longer than before */
+  height: 10px;                     /* taller for a brush feel */
+  margin: 18px auto 0;
+  border-radius: 999px;             /* gives it an organic curve */
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(195,163,91,0.25) 10%,
+    rgba(195,163,91,0.8) 50%,
+    rgba(195,163,91,0.25) 90%,
+    transparent 100%
+  );
+  filter: blur(0.6px);              /* slight softness */
 }
+@media (max-width: 420px){
+  .headline::after{ width:120px; height:8px; }
+}
+
