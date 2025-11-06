@@ -128,6 +128,10 @@ img{ max-width:100%; display:block; }
   content:""; display:block; width:80px; height:2px;
   background:var(--accent); margin:10px auto 0; border-radius:2px;
 }
+/* Remove the gold line under main headline */
+.headline::after {
+  content: none;
+}
 
 .tag{
   font-size:1.2rem; color:#444; margin:.1em 0 .4em;
