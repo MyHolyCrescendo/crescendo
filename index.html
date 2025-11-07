@@ -12,9 +12,7 @@
     :root{
       --ink:#273746;
       --paper:#f9fafa;
-      --brand:#3a6073;
-      --brand-2:#7fb6b3;
-      --accent:#C3A35B;
+      --gold:#C3A35B;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     body{
@@ -25,31 +23,33 @@
     }
     h1,h2,h3{font-family:"Playfair Display",Georgia,serif;color:#152029;margin-bottom:.6rem}
     p{margin-bottom:1rem}
-    a{color:var(--brand);text-decoration:none}
+    a{color:var(--gold);text-decoration:none}
     .container{max-width:1100px;margin:0 auto;padding:0 1rem}
 
     /* Header */
     .site-header{position:sticky;top:0;z-index:10;background:#ffffffc8;backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid rgba(0,0,0,.06)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
-    .brand-text{font-family:"Playfair Display",serif;font-size:1.2rem;font-weight:700;color:#151a20;text-decoration:none}
-    .links{display:flex;gap:14px}
-    .links a{font-weight:600;padding:8px 10px;border-radius:10px;color:#1c232a}
-    .links a.active{color:#0f1720;background:linear-gradient(90deg,rgba(195,163,91,.18),rgba(195,163,91,0));border:1px solid rgba(195,163,91,.35)}
+    .nav{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 0;gap:6px}
+    .brand-text{font-family:"Playfair Display",serif;font-size:1.3rem;font-weight:700;color:#151a20;text-decoration:none}
+    .links{display:flex;gap:18px;justify-content:center}
+    .links a{font-weight:600;padding:8px 10px;border-radius:10px;color:#1c232a;transition:all .2s ease}
+    .links a:hover{color:var(--gold)}
+    .links a.active{color:var(--gold);border-bottom:2px solid var(--gold)}
 
     /* Hero */
     .hero{padding:80px 0;text-align:center;position:relative}
     .hero h1{font-size:clamp(2.5rem,6vw,3.8rem);margin-bottom:0.5rem}
-    .hero .subtitle{font-family:'Dancing Script',cursive;font-size:1.6rem;color:#7a6a3f;margin-bottom:1.5rem}
+    .hero .subtitle{font-family:'Dancing Script',cursive;font-size:1.8rem;color:var(--gold);margin-bottom:1.5rem}
     .cta-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-    .btn{display:inline-block;padding:0.8rem 1.2rem;border-radius:999px;font-weight:600;border:1px solid transparent;text-decoration:none}
-    .btn.primary{background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#fff}
-    .btn.secondary{background:#fff;border-color:rgba(0,0,0,.12);color:#152029}
-    .btn.secondary:hover{background:#f7f7f8}
+    .btn{display:inline-block;padding:0.8rem 1.4rem;border-radius:999px;font-weight:600;border:none;text-decoration:none;cursor:pointer;transition:all .25s ease}
+    .btn.primary{background:linear-gradient(90deg,#d4b165,#c3a35b,#e3cc8a);color:#fff;box-shadow:0 4px 14px rgba(195,163,91,.35)}
+    .btn.primary:hover{filter:brightness(1.05)}
+    .btn.secondary{background:#fff;border:1px solid var(--gold);color:#152029}
+    .btn.secondary:hover{background:#fff8e7}
 
     /* About */
     .about{padding:60px 0;text-align:center}
     .about p{max-width:700px;margin:0 auto 1rem}
-    .signature{font-family:'Dancing Script',cursive;color:#7a6a3f;font-size:1.2rem}
+    .signature{font-family:'Dancing Script',cursive;color:var(--gold);font-size:1.2rem}
 
     /* Featured Program */
     .program{padding:60px 0;text-align:center;background:#fff}
@@ -60,9 +60,6 @@
     .prelude{padding:60px 0;text-align:center}
     .prelude form{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:1rem}
     input[type=email]{padding:0.9rem 1rem;border-radius:999px;border:1px solid rgba(0,0,0,.15);min-width:260px}
-
-    /* Testimonials placeholder */
-    .social-proof{display:none;}
 
     /* Footer */
     footer{padding:30px 0;border-top:1px solid rgba(0,0,0,.06);text-align:center;background:#fff;color:#51616e}
@@ -90,7 +87,7 @@
         <p class="subtitle">A movement of beauty, identity, and grace</p>
         <div class="cta-row">
           <a href="/prelude.html" class="btn primary">Get the Free Prelude</a>
-          <a href="/journey.html" class="btn secondary">Discover the 15‑Week Journey</a>
+          <a href="/journey.html" class="btn secondary">Discover the 15-Week Journey</a>
         </div>
       </div>
     </section>
@@ -109,7 +106,7 @@
     <section class="program">
       <div class="container">
         <h2>Crescendo: Fearfully & Wonderfully Made</h2>
-        <p>A 15‑week guided journey — a symphony of grace through Scripture, creativity, and reflection.</p>
+        <p>A 15-week guided journey — a symphony of grace through Scripture, creativity, and reflection.</p>
         <a href="/journey.html" class="btn primary">Learn More</a>
       </div>
     </section>
@@ -127,14 +124,6 @@
           <button type="submit" class="btn primary">Send Me the Prelude</button>
         </form>
         <p style="margin-top:10px">or <a href="/prelude.html">Read it on the site →</a></p>
-      </div>
-    </section>
-
-    <!-- Social Proof Placeholder -->
-    <section class="social-proof">
-      <div class="container">
-        <h2>What women are saying…</h2>
-        <!-- Add quotes after pilot -->
       </div>
     </section>
   </main>
