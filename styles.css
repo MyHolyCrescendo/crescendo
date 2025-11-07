@@ -573,3 +573,14 @@ footer img{
 }
 
 footer p{ margin: 0; }
+/* Center bullets + text for Prelude list */
+.prelude ul{
+  list-style-position: inside;
+  text-align: center;
+  padding: 0;
+  margin: 1rem auto;
+  max-width: 600px;
+}
+.prelude li{
+  margin: 0.3rem 0;
+}
