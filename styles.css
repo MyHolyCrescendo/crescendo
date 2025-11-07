@@ -639,3 +639,8 @@ ul li::before {
   );
   box-shadow: 0 0 4px rgba(224, 201, 143, 0.4);
 }
+/* Centered sections but left-align gold bullets for readability */
+.gold-list {
+  display: inline-block;     /* keeps list centered overall */
+  text-align: left;          /* aligns bullets with text */
+}
