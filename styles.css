@@ -602,3 +602,9 @@ footer p{ margin: 0; }
   transform: translateZ(0);    /* WebKit repaint fix (prevents visual crop) */
 }
 /* --- Fix Journey header script line clipping --- */
+/* --- Tiny visual adjustment for About subtitle --- */
+.about h1 + .subtitle {
+  position: relative;
+  top: 0.1em; /* move text slightly down — try 0.05em to 0.15em if needed */
+}
+/* --- Tiny visual adjustment for Journey subtitle --- */
