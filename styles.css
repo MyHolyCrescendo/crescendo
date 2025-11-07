@@ -608,3 +608,34 @@ footer p{ margin: 0; }
   top: 0.1em; /* move text slightly down — try 0.05em to 0.15em if needed */
 }
 /* --- Tiny visual adjustment for Journey subtitle --- */
+/* === Global Gold Line Bullets === */
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 1rem;
+}
+
+ul li {
+  position: relative;
+  padding-left: 22px;
+  margin: 0.45rem 0;
+  line-height: 1.55;
+}
+
+ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.9em;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(195, 163, 91, 0),
+    var(--accent),
+    rgba(195, 163, 91, 0)
+  );
+  box-shadow: 0 0 4px rgba(224, 201, 143, 0.4);
+}
