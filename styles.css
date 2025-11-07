@@ -1,13 +1,26 @@
-/* styles.css — Crescendo landing (merged) */
+/* =========================================================
+   My Holy Crescendo — Global Styles (Unified)
+   - Gold accents + shimmery gold primary buttons
+   - Centered masthead with THIN separators
+   - Gold “brushstroke” underline for nav hover/active
+   - Script subtitle support
+   - Keeps your existing section styles (hero/freebie/footer)
+   ========================================================= */
+
+/* Load fonts site-wide (safe even if you also link in HTML) */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&family=Dancing+Script:wght@500;600&family=Great+Vibes&display=swap");
+
 /* ---------- Tokens ---------- */
 :root{
   --ink:#273746;      /* subtitle/body */
   --paper:#f9fafa;    /* soft off-white bg */
-  --brand:#3a6073;    /* deep teal */
-  --brand-2:#7fb6b3;  /* lighter teal */
+  --brand:#3a6073;    /* deep teal (optional) */
+  --brand-2:#7fb6b3;  /* lighter teal (optional) */
   --accent:#C3A35B;   /* warm gold */
   --accent-2:#E0C98F; /* light gold glow */
   --muted:#47515a;
+  --ink-2:#163245;    /* headings / brand */
+  --nav-sep: rgba(39,55,70,.25); /* thin line separator color */
 }
 
 /* ---------- Base ---------- */
@@ -25,10 +38,12 @@ body{
 
 h1,h2{
   font-family:"Playfair Display", Georgia, serif;
-  color:#163245; /* deep blue header */
+  color:var(--ink-2);
 }
 
 img{ max-width:100%; display:block; }
+
+a{ color: var(--accent); text-decoration: none; }
 
 /* ---------- Layout ---------- */
 .container{
@@ -38,7 +53,7 @@ img{ max-width:100%; display:block; }
   padding-right: clamp(12px, 3vw, 24px);
 }
 
-/* ---------- Header ---------- */
+/* ---------- Header (centered, with thin separators) ---------- */
 .site-header{
   position:sticky; top:0; z-index:10;
   background:#ffffffc8;
@@ -46,7 +61,7 @@ img{ max-width:100%; display:block; }
   border-bottom:1px solid rgba(0,0,0,.06);
 }
 
-/* --- Two-row centered masthead --- */
+/* Two-row centered masthead */
 .masthead{
   display:flex;
   flex-direction:column;
@@ -55,72 +70,84 @@ img{ max-width:100%; display:block; }
   padding-block: 12px;
 }
 
-/* Site title */
 .site-title{
   font-family:"Playfair Display", Georgia, serif;
   font-weight:700;
   font-size: clamp(1.2rem, 2.8vw, 1.4rem);
   letter-spacing:.4px;
-  color:#163245;
+  color:var(--ink-2);
   text-decoration:none;
 }
 
-/* Menu row */
+/* Centered menu + THIN separators (not the pipe character) */
 .primary-nav .menu{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:18px;              /* spacing between items & separators */
+  gap:18px;
   flex-wrap:wrap;
   margin:0;
   padding:4px 0 2px;
   list-style:none;
 }
+.primary-nav .menu li{ display:flex; align-items:center; }
+.primary-nav .menu li + li::before{
+  content:"";                /* thin rule instead of "│" */
+  width:1px; height:22px;
+  background: var(--nav-sep);
+  margin: 0 6px;
+}
 
-/* Links */
+/* Links with GOLD brushstroke underline */
 .nav-link{
   position:relative;
   text-decoration:none;
   color:#273746;
-  font-weight:600;
+  font-weight:700;                 /* heavier like Home page */
   font-size: clamp(.96rem, 2.2vw, 1rem);
   padding:4px 2px;
-  transition: color .15s ease;
+  transition: color .2s ease;
 }
+.nav-link:hover{ color:#273746; }
 
-/* Gold underline on hover/active */
+/* Brushstroke underline (matches Home) */
 .nav-link::after{
   content:"";
   position:absolute;
-  left:0; right:0; bottom:-2px;
-  height:2px;
-  transform: scaleX(0);
-  transform-origin:left;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  transition: transform .2s ease;
+  left:0; right:0; bottom:-10px;   /* slight offset below text */
+  height:4px;
+  background: linear-gradient(
+    90deg,
+    rgba(195,163,91,0) 0%,
+    rgba(195,163,91,.95) 35%,
+    rgba(195,163,91,0) 100%
+  );
+  opacity:0;
+  transform: translateY(2px);
+  transition: opacity .25s ease, transform .25s ease;
 }
-.nav-link:hover::after,
-.nav-link.is-active::after{ transform: scaleX(1); }
-
-/* Vertical pipe separators */
-.primary-nav .menu li{
-  display:flex; align-items:center;
-}
-.primary-nav .menu li + li::before{
-  content:"│";
-  color:#a8b3bb;
-  opacity:.9;
-  margin: 0 6px;
+.nav-link:hover::after{
+  opacity:.6;
+  transform: translateY(0);
 }
 
-/* Mobile tweaks */
+/* Active states support: .active, .is.active, and .is-active */
+.nav-link.active,
+.nav-link.is.active,
+.nav-link.is-active{
+  color:#1a222b;
+}
+.nav-link.active::after,
+.nav-link.is.active::after,
+.nav-link.is-active::after{
+  opacity:1;
+  transform: translateY(0);
+}
+
+/* Mobile tweaks for menu spacing */
 @media (max-width:560px){
-  .primary-nav .menu{
-    gap:10px;
-  }
-  .primary-nav .menu li + li::before{
-    margin: 0 4px;
-  }
+  .primary-nav .menu{ gap:10px; }
+  .primary-nav .menu li + li::before{ margin: 0 4px; height:18px; }
 }
 
 /* ---------- Hero ---------- */
@@ -153,12 +180,12 @@ img{ max-width:100%; display:block; }
   font-weight:700;
   font-size:clamp(3rem, 6.5vw, 4.4rem);
   letter-spacing:1px;
-  color:#163245;
+  color:var(--ink-2);
   line-height:1.0;
   margin-bottom:0;
 }
 
-/* Sub-title with gold shimmer */
+/* Sub-title (gold shimmer w/ Great Vibes) — still supported */
 .title-sub{
   display:block;
   font-family:"Great Vibes", cursive;
@@ -166,8 +193,6 @@ img{ max-width:100%; display:block; }
   font-size:clamp(1.8rem, 5vw, 2.6rem);
   line-height:1.1;
   margin-top:-10px;
-
-  /* shimmer */
   position:relative;
   background: linear-gradient(
     90deg,
@@ -187,15 +212,8 @@ img{ max-width:100%; display:block; }
   100%{ background-position:100% 50%; }
 }
 
-/* simple gold rule under headline */
-.headline::after{
-  content:""; display:block; width:80px; height:2px;
-  background:var(--accent); margin:10px auto 0; border-radius:2px;
-}
-/* Remove the gold line under main headline */
-.headline::after {
-  content: none;
-}
+/* Optional: a simple rule under headline (disabled) */
+.headline::after { content: none; }
 
 .tag{
   font-size:1.2rem; color:#444; margin:.1em 0 .4em;
@@ -210,28 +228,44 @@ img{ max-width:100%; display:block; }
 
 .lede{ font-size:1.05rem; opacity:.9; margin:.2em 0 1em; }
 
+/* Also support page-level subtitle under H1 (Home hero) */
+.subtitle{
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(1.6rem, 4.8vw, 1.9rem);
+  color: var(--accent);
+  margin: .25rem 0 1.5rem;
+}
+
 /* ---------- Buttons ---------- */
 .btn{
   display:inline-block;
   font-weight:700; letter-spacing:.2px;
-  text-decoration:none; border:0; border-radius:14px;
+  text-decoration:none; border:0; border-radius:999px;
   padding:14px 20px;
-  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
-  box-shadow: 0 10px 30px rgba(58,163,169,.18), 0 2px 6px rgba(0,0,0,.06);
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease, background-color .15s ease;
+  box-shadow: 0 10px 30px rgba(195,163,91,.18), 0 2px 6px rgba(0,0,0,.06);
 }
 .btn:hover{ transform: translateY(-1px); }
-.btn:active{ transform: translateY(0); box-shadow: 0 6px 18px rgba(58,163,169,.18); }
+.btn:active{ transform: translateY(0); box-shadow: 0 6px 18px rgba(195,163,91,.18); }
 .btn:focus-visible{
-  outline:3px solid color-mix(in srgb, var(--brand) 35%, white);
+  outline:3px solid color-mix(in srgb, var(--accent) 35%, white);
   outline-offset:3px; border-radius:16px;
 }
 
-/* Default (teal) and optional gold variant */
-.btn{ color:#fff; background:linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow: 0 10px 30px rgba(122,95,208,.25); }
-/* Brighter gold CTA with animated shimmer + white text */
+/* DEFAULT: Gold CTA (matches Home) */
+.btn{ color:#fff; background:linear-gradient(90deg, #d4b165, #c3a35b, #e3cc8a); }
+
+/* Optional TEAL variant if you need it somewhere */
+.btn--teal{
+  color:#fff;
+  background:linear-gradient(135deg, var(--brand), var(--brand-2));
+  box-shadow: 0 10px 30px rgba(58,163,169,.18), 0 2px 6px rgba(0,0,0,.06);
+}
+
+/* Animated bright gold option (keep if you used .btn--gold) */
 .btn--gold{
   color:#fff;
-  border: 0;
+  border:0;
   background-image: linear-gradient(
     120deg,
     #b8892e 0%,
@@ -240,29 +274,21 @@ img{ max-width:100%; display:block; }
     #a8791f 75%,
     #e6cc7a 100%
   );
-  background-size: 220% 100%;          /* enables the flowing effect */
+  background-size: 220% 100%;
   animation: goldflow 6s linear infinite;
   box-shadow:
     0 1px 0 rgba(0,0,0,.06) inset,
     0 10px 28px rgba(195,163,91,.34),
     0 3px 8px rgba(0,0,0,.10);
 }
-
-/* A bit more lift on hover for the gold variant */
 .btn--gold:hover{
   transform: translateY(-1px);
   box-shadow:
     0 12px 32px rgba(195,163,91,.38),
     0 4px 10px rgba(0,0,0,.12);
 }
+@keyframes goldflow{ 0%{background-position:0% 0%} 100%{background-position:100% 0%} }
 
-/* Flowing gold background animation */
-@keyframes goldflow{
-  0%   { background-position: 0% 0%; }
-  100% { background-position: 100% 0%; }
-}
-
-/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce){
   .btn--gold{ animation: none; }
 }
@@ -293,7 +319,7 @@ img{ max-width:100%; display:block; }
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(1.6rem, 4.4vw, 2.2rem);
   margin: 0 0 .5rem;
-  color: #163245;
+  color: var(--ink-2);
 }
 
 /* General accent for any span inside the title (keeps flexibility) */
@@ -310,10 +336,10 @@ img{ max-width:100%; display:block; }
   font-weight:400;
   font-size:1.3em;
   letter-spacing:0.5px;
-  background:none;              /* override gradient from the general span */
-  color:var(--accent);          /* warm matte gold for contrast */
+  background:none;
+  color:var(--accent);
 }
-/* --- Refined Freebie Layout --- */
+
 /* --- Refined Freebie Section with Watercolor Accent & Divider --- */
 .freebie{
   position: relative;
@@ -326,8 +352,6 @@ img{ max-width:100%; display:block; }
     radial-gradient(600px 300px at 20% 100%, rgba(127,182,179,.12), transparent 70%),
     linear-gradient(180deg, #fafaf9 0%, #f5f8f7 100%);
 }
-
-/* Add a watercolor-style overlay (like a soft wash across the top) */
 .freebie::before{
   content:"";
   position:absolute;
@@ -337,8 +361,6 @@ img{ max-width:100%; display:block; }
   pointer-events:none;
   mix-blend-mode:multiply;
 }
-
-/* Inner container stays centered */
 .freebie-inner{
   position: relative;
   z-index: 1;
@@ -350,38 +372,7 @@ img{ max-width:100%; display:block; }
   gap: clamp(24px, 4vw, 36px);
 }
 
-/* Title, benefits, form styles stay as before */
-
-.freebie-inner{
-  width: min(720px, 92%);
-  margin-inline: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(24px, 4vw, 36px);
-}
-
-/* Title */
-.freebie-title{
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(1.4rem, 3.8vw, 2rem);
-  margin: 0 0 .75rem;
-  color: #163245;
-  text-align: center;
-}
-
-/* Keep your script gold style */
-.freebie-title .script{
-  font-family:"Great Vibes", cursive;
-  font-weight:400;
-  font-size:1.25em;
-  letter-spacing:0.5px;
-  background:none;
-  color:var(--accent);
-}
-
 /* Benefits list */
-/* Benefits list — elegant dash style */
 .benefits{
   list-style: none;
   padding: 0;
@@ -395,20 +386,18 @@ img{ max-width:100%; display:block; }
   align-items: center;
   gap: 0.4rem;
 }
-
 .benefits li::before{
-  content: "— ";         /* elegant dash */
-  color: var(--accent);  /* warm gold tone */
+  content: "— ";
+  color: var(--accent);
   font-weight: 600;
   letter-spacing: 0.5px;
 }
-
 .benefits li{
   margin: 0;
-  max-width: 45ch;       /* keeps nice line width */
+  max-width: 45ch;
 }
 
-/* Form */
+/* Sign-up card */
 .signup{
   background: #fff;
   border: 1px solid rgba(0,0,0,.06);
@@ -422,26 +411,19 @@ img{ max-width:100%; display:block; }
   max-width: 420px;
   text-align: left;
 }
-
-/* Fields smaller & balanced */
-.field label{
-  font-size:.85rem;
-}
+.field label{ font-size:.85rem; }
 .field input{
   font-size: .95rem;
   padding: 10px 12px;
 }
-
-.signup .btn{
-  width:100%;
-  margin-top:10px;
-}
+.signup .btn{ width:100%; margin-top:10px; }
 
 .freebie-note, .form-help{
   text-align: center;
   color: var(--muted);
   font-size: 0.9rem;
 }
+
 /* --- Elegant Divider --- */
 .section-divider{
   display:flex;
@@ -451,7 +433,6 @@ img{ max-width:100%; display:block; }
   padding: clamp(20px, 4vw, 40px) 0;
   background:linear-gradient(180deg, #f9fafa 0%, #edf6f5 100%);
 }
-
 .divider-line{
   flex:1;
   height:2px;
@@ -459,7 +440,6 @@ img{ max-width:100%; display:block; }
   background:linear-gradient(90deg, transparent, var(--accent), transparent);
   filter: drop-shadow(0 0 4px rgba(195,163,91,.4));
 }
-
 .divider-logo{
   width:50px;
   opacity:.9;
@@ -472,11 +452,10 @@ img{ max-width:100%; display:block; }
   .signup{ padding: 18px; }
 }
 
-/* ---------- Mobile tweaks ---------- */
+/* ---------- Mobile headline tweaks ---------- */
 @media (max-width:480px){
   .hero-logo{ width:80px; margin-bottom:4px; }
   .title-sub{ font-size:clamp(1.6rem, 6vw, 2.2rem); margin-top:-8px; }
-  .headline::after{ width:60px; }
 }
 @media (max-width:380px){
   .title-main{ font-size: clamp(2.2rem, 8vw, 2.6rem); }
