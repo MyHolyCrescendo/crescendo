@@ -521,3 +521,33 @@ footer > .container{
 @media (max-width: 600px){
   .hero{ padding: 60px 0 90px; }
 }
+/* === Center the Program + Prelude sections like the hero/about === */
+.program,
+.prelude{
+  text-align: center;
+  padding: 60px 0;
+}
+
+.program p{
+  margin: 0 auto 1rem;
+  max-width: 70ch;
+  color: var(--muted);
+}
+
+.prelude h2{ margin-bottom: .5rem; }
+
+/* keep the bullet list tidy but centered as a block */
+.prelude ul{
+  margin: 1rem auto;
+  padding: 0;
+  max-width: 600px;
+  text-align: left;  /* bullets read better left-aligned within centered block */
+}
+
+/* ensure all section containers share the exact center line */
+.program > .container,
+.prelude > .container{
+  width: var(--page-width, min(900px, 92%));
+  margin-inline: auto;
+  padding-inline: clamp(12px, 3vw, 24px);
+}
