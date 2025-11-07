@@ -470,17 +470,30 @@ a{ color: var(--accent); text-decoration: none; }
 @media (max-width:380px){
   .title-main{ font-size: clamp(2.2rem, 8vw, 2.6rem); }
 }
-/* === Unified centering (header, main sections, footer) === */
+/* === Single source of truth for page centering === */
+:root { --page-width: min(900px, 92%); }
+
 .container{
-  max-width: 900px;
-  width: 92%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: clamp(12px, 3vw, 24px);
-  padding-right: clamp(12px, 3vw, 24px);
+  width: var(--page-width);
+  margin-inline: auto;
+  padding-inline: clamp(12px, 3vw, 24px);
 }
 
-/* Home hero spacing and centering */
+/* Header uses same center line */
+header .container{ width: var(--page-width); }
+
+/* Each section’s direct container matches the same center line */
+.hero > .container,
+.about > .container,
+.program > .container,
+.prelude > .container,
+footer > .container{
+  width: var(--page-width);
+  margin-inline: auto;
+  padding-inline: clamp(12px, 3vw, 24px);
+}
+
+/* Hero spacing + background */
 .hero{
   padding: 80px 0 120px;
   text-align: center;
@@ -490,55 +503,21 @@ a{ color: var(--accent); text-decoration: none; }
     radial-gradient(900px 450px at 80% 0%, rgba(127,182,179,.12), transparent 60%),
     linear-gradient(180deg, #f9fafa 0%, #edf6f5 100%);
 }
-.hero .container{
-  max-width: 900px;
-  width: 92%;
-  margin-left: auto;
-  margin-right: auto;
+
+/* Hero text sizing (bigger H1) */
+.hero h1{
+  font-size: clamp(3.2rem, 7.2vw, 4.8rem);
+  margin-bottom: .5rem;
 }
 
-/* Keep hero internals centered */
-.hero h1,
-.hero .subtitle,
-.hero .cta-row{ margin-left:auto; margin-right:auto; }
-
-.hero .cta-row{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-}
-/* === Make About section match container width === */  
-/* (Optional) keep About matching too, for optical alignment */
-.about > .container{
-  width: min(900px, 92%) !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-/* === Hard-center the Home hero to match site container === */
-.hero,
-.hero .container { text-align: center !important; }
-
-.hero .container{
-  width: min(900px, 92%) !important;
-  margin-inline: auto !important;
-  padding-inline: clamp(12px, 3vw, 24px) !important;
-  max-width: none !important;
-}
-
-/* Make the hero children anchor to the true center line */
-.hero h1,
-.hero .subtitle,
-.hero .cta-row{
-  display: block;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* Keep the CTAs perfectly centered */
+/* Keep CTAs centered */
 .hero .cta-row{
   display: flex;
-  justify-content: center !important;
+  justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
+}
+
+@media (max-width: 600px){
+  .hero{ padding: 60px 0 90px; }
 }
