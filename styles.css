@@ -60,6 +60,14 @@ a{ color: var(--accent); text-decoration: none; }
   backdrop-filter:saturate(180%) blur(14px);
   border-bottom:1px solid rgba(0,0,0,.06);
 }
+/* Align brand + nav in one horizontal row */
+.site-header .nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+}
 
 /* Two-row centered masthead */
 .masthead{
@@ -79,39 +87,34 @@ a{ color: var(--accent); text-decoration: none; }
   text-decoration:none;
 }
 
-/* Centered menu + THIN separators (not the pipe character) */
-.primary-nav .menu{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:18px;
-  flex-wrap:wrap;
-  margin:0;
-  padding:4px 0 2px;
-  list-style:none;
-}
-.primary-nav .menu li{ display:flex; align-items:center; }
-.primary-nav .menu li + li::before{
-  content:"";                /* thin rule instead of "│" */
-  width:1px; height:22px;
-  background: var(--nav-sep);
-  margin: 0 6px;
-}
-/* --- Fix stray gold dash in nav --- */
-.primary-nav .menu li::before {
-  content: none !important;
+/* ---------- Primary Navigation ---------- */
+.primary-nav .menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 6px 0 10px; /* gives extra room below links for the gold underline */
+  list-style: none;
 }
 
+/* Each menu item */
+.primary-nav .menu li {
+  display: flex;
+  align-items: center;
+}
+
+/* Thin separators between items */
 .primary-nav .menu li + li::before {
   content: "";
-  display: inline-block;
   width: 1px;
   height: 22px;
   background: var(--nav-sep);
   margin: 0 6px;
 }
 
-/* Prevent any gold-line bullets from applying to nav */
+/* Prevent any global bullet or gold-line styles from affecting nav */
 .primary-nav .menu li::marker,
 .primary-nav .menu li::before.gold-list {
   content: none;
