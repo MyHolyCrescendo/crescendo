@@ -673,3 +673,5 @@ ul li::before {
   color:#151a20;
   text-decoration:none;
 }
+.menu, .menu li { list-style: none !important; }
+.menu li::marker { content: ""; }
