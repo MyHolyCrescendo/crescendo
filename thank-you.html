@@ -1,94 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Crescendo: Fearfully & Wonderfully Made</title>
-  <meta name="description" content="A Symphony of Grace — Join the next cohort Tuesdays at 7:30 pm CST." />
-  <meta property="og:title" content="Crescendo: Fearfully & Wonderfully Made" />
-  <meta property="og:description" content="A Symphony of Grace — Join the next cohort Tuesdays at 7:30 pm CST." />
+  <title>Thank You — My Holy Crescendo</title>
+  <meta name="description" content="Thank you for joining the Symphony. Your journey toward beauty, identity, and grace begins now." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Thank You — My Holy Crescendo" />
+  <meta property="og:description" content="You’re in! Watch your inbox for details. A Symphony of Grace awaits." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/social/og-thank-you.jpg" />
+  <meta property="og:url" content="https://myholycrescendo.com/thank-you" />
+
+  <!-- Favicons (optional) -->
+  <link rel="icon" href="/assets/favicon.ico" />
+
+  <!-- Google Fonts (match site) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-<style>
-  /* Temp override to beat cache/ordering issues */
-  .title-sub { font-family: "Great Vibes", cursive !important; }
-</style>
-  <link rel="stylesheet" href="styles.css?v=gold24" />
-  <link rel="icon" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/styles.css" />
+
+  <style>
+    :root{
+      --ink:#273746;
+      --paper:#f9fafa;
+      --brand:#3a6073;
+      --brand-2:#7fb6b3;
+      --accent:#C3A35B;
+    }
+    body{ background:linear-gradient(180deg, #f9fafa 0%, #edf6f5 100%); color:var(--ink); font-family:"Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    .container{ max-width:1100px; margin:0 auto; padding:0 20px; }
+    .thanks-hero{ position:relative; padding: clamp(80px, 12vw, 140px) 0 56px; text-align:center; overflow:hidden; isolation:isolate; background: radial-gradient(1200px 600px at 80% -10%, rgba(195,163,91,0.18), transparent 60%), radial-gradient(900px 500px at -10% 10%, rgba(195,163,91,0.12), transparent 60%), linear-gradient(180deg, #fff 0%, #f6f7f4 60%, #f0f6f5 100%); }
+    .thanks-hero .eyebrow{ display:inline-block; letter-spacing:.12em; text-transform:uppercase; font-weight:600; font-size:.85rem; color:#566573; }
+    .thanks-hero h1{ font-family:"Playfair Display", Georgia, serif; font-weight:700; line-height:1.14; font-size: clamp(2rem, 4.5vw, 3.25rem); margin:.35em 0 .25em; color:#163245; }
+    .thanks-hero p.sub{ max-width:800px; margin:0 auto; font-size: clamp(1rem, 1.6vw, 1.125rem); opacity:.9; }
+    .next-steps{ padding: 26px 0 12px; }
+    .steps-grid{ display:grid; gap:18px; grid-template-columns: repeat( auto-fit, minmax(240px, 1fr) ); margin-top:26px; }
+    .card{ background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:18px; padding:22px; box-shadow: 0 10px 20px rgba(0,0,0,.04); }
+    .card h3{ font-family:"Playfair Display", Georgia, serif; font-size:1.15rem; margin:.25rem 0 .35rem; color:#1b2b34; }
+    .card p{ margin:0 0 14px; font-size:.98rem; }
+    .btn{ display:inline-flex; align-items:center; justify-content:center; gap:10px; text-decoration:none; font-weight:600; border-radius:999px; padding:12px 18px; border:1px solid transparent; }
+    .btn-primary{ background: linear-gradient(135deg, var(--brand), var(--brand-2)); color:#fff; }
+    .btn-ghost{ background:#fff; border-color:rgba(0,0,0,.12); color:#163245; }
+    .btn-gold{ background: var(--accent); color:#1d232a; }
+    .notice{ margin-top:16px; font-size:.95rem; color:#4a5862; }
+    .blessing{ text-align:center; padding:38px 0 14px; }
+    .blessing blockquote{ font-family:"Playfair Display", Georgia, serif; font-size: clamp(1.1rem, 2.2vw, 1.35rem); color:#24333d; margin:0 auto; max-width:760px; }
+    .blessing cite{ display:block; margin-top:10px; font-size:.95rem; color:#6c7a84; }
+    .faq{ padding: 28px 0 70px; }
+    .faq h2{ font-family:"Playfair Display", Georgia, serif; color:#1b2b34; font-size:1.6rem; margin: 18px 0 8px; }
+    .faq details{ background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:14px; padding:14px 16px; margin:10px 0; }
+    .faq summary{ font-weight:600; cursor:pointer; }
+    .faq p{ margin:10px 0 0; }
+    .site-footer{ border-top:1px solid rgba(0,0,0,.06); padding:28px 0; color:#556; background: #ffffffaa; backdrop-filter:saturate(180%) blur(10px); }
+    .site-footer .foot{ display:flex; gap:18px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+    .site-footer small{ opacity:.8; }
+    .stack-m > * + *{ margin-top: 8px; }
+    .stack-l > * + *{ margin-top: 18px; }
+  </style>
 </head>
 <body>
-<header class="site-header">
-  <div class="container masthead">
-    <a href="/" class="site-title">My Holy Crescendo</a>
-
-    <nav class="primary-nav" aria-label="Main">
-      <ul class="menu">
-        <li><a class="nav-link is-active" href="/">Home</a></li>
-        <li><a class="nav-link" href="/about.html">About</a></li>
-        <li><a class="nav-link" href="/journey.html">The Journey</a></li>
-        <li><a class="nav-link" href="/free-reflection.html">Free Reflection</a></li>
-        <li><a class="nav-link" href="/contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/">
+        <img class="logo" src="/assets/logo.svg" alt="My Holy Crescendo logo" />
+        <span class="brand-text">My Holy Crescendo</span>
+      </a>
+      <nav class="menu">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about.html" class="nav-link">About</a>
+        <a href="/journey.html" class="nav-link">Journey</a>
+        <a href="/prelude.html" class="nav-link">Prelude</a>
+        <a href="/contact.html" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
   <main>
-    <section class="landing-hero">
-  <div class="container landing-inner">
-    <img src="crescendo-logo.png" alt="Crescendo logo" class="hero-logo">
-    <h1 class="headline">
-      <span class="title-main">Crescendo</span><br>
-      <span class="title-sub">Fearfully &amp; Wonderfully Made</span>
-    </h1>
-    <p class="tag">A Symphony of Grace</p>
-    <p class="lede">Join the next cohort — Tuesdays at 7:30 pm CST</p>
-    <a class="btn btn--gold" id="cta" href="https://forms.gle/2h2CiNYwFbWFPvpW7" target="_blank" rel="noopener">Join the Waitlist</a>
-    <p class="tiny">You’ll get one simple email with next steps. No spam, ever.</p>
-  </div>
-</section>
-
-<div class="freebie-copy">
-  <h2 class="freebie-title">
-    3-Day Prelude to a <span class="script">Symphony of Grace</span>
-  </h2>
-
-  <!-- Add this block -->
-  <ul class="benefits">
-    <li>3 short daily reflections with a gentle practice</li>
-    <li>A printable mini-guide you can keep</li>
-    <li>One small step each day toward peace &amp; beauty</li>
-  </ul>
-
-  <p class="freebie-note tiny">No spam. Unsubscribe anytime.</p>
-</div>
-<!-- ✨ GOLD DIVIDER ✨ -->
-<div class="section-divider">
-  <div class="divider-line"></div>
-  <img src="crescendo-logo.png" alt="Crescendo logo" class="divider-logo">
-  <div class="divider-line"></div>
-</div>
-
-    <section class="mini-about">
+    <section class="thanks-hero">
       <div class="container">
-        <p class="about">
-          A gentle, faith-filled journey to discover your design — body, mind, and soul — through beauty, mercy, and grace.
-        </p>
+        <span class="eyebrow">Thank you</span>
+        <h1>Thank You for Joining the Symphony</h1>
+        <p class="sub">Whether you signed up for the <em>3‑Day Prelude</em> or enrolled in the <em>Crescendo: Fearfully &amp; Wonderfully Made</em> cohort, you’re in. Your journey toward beauty, identity, and grace begins now.</p>
+        <p class="notice">A welcome email is on its way. If it doesn’t arrive within a few minutes, please check your Promotions or Spam folder.</p>
+      </div>
+    </section>
+    <section class="next-steps">
+      <div class="container">
+        <div class="steps-grid">
+          <article class="card">
+            <h3>Check Your Email</h3>
+            <p>Look for your welcome message with access details and Day 1 reflections (for the Prelude) or cohort onboarding (for Crescendo).</p>
+            <a class="btn btn-primary" href="mailto:">Open Mail App</a>
+            <p class="notice">Didn’t get it? <a href="mailto:myholycrescendo@gmail.com?subject=Resend%20my%20welcome">Request a resend</a>.</p>
+          </article>
+          <article class="card">
+            <h3>Join the Community</h3>
+            <p>Step into fellowship. Share insights, ask questions, and walk with others on the path.</p>
+            <a class="btn btn-ghost" href="https://example.com/community" target="_blank" rel="noopener">Enter the Community</a>
+          </article>
+          <article class="card">
+            <h3>Add to Your Calendar</h3>
+            <p>Add the kickoff to your calendar so you don’t miss the opening notes of the Symphony.</p>
+            <a class="btn btn-gold" href="/assets/calendar/crescendo-kickoff.ics">Add Kickoff (.ics)</a>
+          </article>
+          <article class="card">
+            <h3>Prelude Playlist</h3>
+            <p>Set the tone with a curated set of reflective pieces to pray, ponder, and prepare.</p>
+            <a class="btn btn-ghost" href="https://open.spotify.com/" target="_blank" rel="noopener">Listen on Spotify</a>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="blessing">
+      <div class="container">
+        <blockquote>“You are fearfully and wonderfully made — may this journey help you hear the music He has written in your soul.”<cite>— A Symphony of Grace</cite></blockquote>
+      </div>
+    </section>
+    <section class="faq">
+      <div class="container">
+        <h2>Quick Answers</h2>
+        <details>
+          <summary>I signed up for the 3‑Day Prelude. What happens next?</summary>
+          <p>Day 1 arrives by email with a short reflection and a simple practice. Days 2 and 3 will follow. You can start anytime.</p>
+        </details>
+        <details>
+          <summary>I enrolled in the Crescendo cohort. What happens next?</summary>
+          <p>You’ll receive onboarding with session dates, Zoom/link info (if applicable), and access to the workbook. Add the kickoff to your calendar above.</p>
+        </details>
+        <details>
+          <summary>I can’t find the email.</summary>
+          <p>Please check Promotions/Spam, search for “My Holy Crescendo,” or request a resend at <a href="mailto:myholycrescendo@gmail.com">myholycrescendo@gmail.com</a>.</p>
+        </details>
+        <details>
+          <summary>How do I contact support?</summary>
+          <p>Email <a href="mailto:myholycrescendo@gmail.com">myholycrescendo@gmail.com</a>. We’re happy to help.</p>
+        </details>
       </div>
     </section>
   </main>
-
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="y"></span> Crescendo · Fearfully &amp; Wonderfully Made</p>
+    <div class="container foot">
+      <small>© <span id="year"></span> My Holy Crescendo. All rights reserved.</small>
+      <small><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></small>
     </div>
   </footer>
-
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const here = location.pathname.replace(/\/index\.html?$/, '/');
+    document.querySelectorAll('.menu .nav-link').forEach(a=>{ const path = a.getAttribute('href'); if(path === here){ a.classList.add('active'); } });
   </script>
 </body>
 </html>
