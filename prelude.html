@@ -3,91 +3,195 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Prelude to a Symphony of Grace · My Holy Crescendo</title>
-  <meta name="description" content="Begin your journey with the Prelude — three days of gentle reflection, prayer, and grace from My Holy Crescendo." />
-  <meta property="og:title" content="Prelude to a Symphony of Grace · My Holy Crescendo" />
-  <meta property="og:description" content="Begin your journey with the Prelude — three days of gentle reflection, prayer, and grace from My Holy Crescendo." />
+  <title>Prelude to a Symphony of Grace — My Holy Crescendo</title>
+  <meta name="description" content="A free 3‑day mini‑journey to slow down, listen, and begin again — your gentle on‑ramp into Crescendo: Fearfully & Wonderfully Made." />
+  <meta property="og:title" content="Prelude to a Symphony of Grace" />
+  <meta property="og:description" content="A free 3‑day mini‑journey to slow down, listen, and begin again — your gentle on‑ramp into Crescendo." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-prelude.jpg" />
+  <meta name="theme-color" content="#3a6073" />
 
-  <!-- Google Fonts -->
+  <!-- Fonts (match the rest of the site) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Site-wide stylesheet -->
-  <link rel="stylesheet" href="/styles.css?v=gold25">
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/styles.css" />
 
-  <link rel="icon" href="/favicon.png">
+  <style>
+    /* Page-specific light styling (content only; header/footer come from site CSS) */
+    :root{ --ink:#273746; --paper:#f9fafa; --brand:#3a6073; --brand-2:#7fb6b3; --accent:#C3A35B; }
+    body{ background: linear-gradient(180deg, #f9fafa 0%, #edf6f5 100%); color: var(--ink); }
+    .container{ width:min(1100px, 92%); margin-inline:auto; }
+    .hero{ padding: clamp(48px, 6vw, 96px) 0; text-align:center; }
+    .eyebrow{ letter-spacing:.12em; text-transform:uppercase; font: 600 12px/1.2 Inter, system-ui, sans-serif; color:#5a6a71; }
+    .hero h1{ font-family:"Playfair Display", Georgia, serif; font-weight:700; font-size:clamp(28px, 4.2vw, 52px); margin:.35em 0 .25em; }
+    .sub{ font: 500 clamp(16px, 2.4vw, 22px)/1.5 Inter, system-ui, sans-serif; color:#31424a; max-width: 48ch; margin: 0 auto; }
+    .cta-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:28px; }
+    .btn{ display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; border-radius:999px; text-decoration:none; font:600 15px/1 Inter, system-ui, sans-serif; }
+    .btn-primary{ background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:#fff; box-shadow:0 6px 18px rgba(58,96,115,.22); }
+    .btn-ghost{ border:1px solid rgba(39,55,70,.25); color:#273746; background:#fff; }
+    .section{ padding: clamp(36px, 5vw, 72px) 0; }
+    .grid{ display:grid; gap:22px; grid-template-columns: repeat(12, 1fr); }
+    .card{ background:#ffffffd8; backdrop-filter:saturate(180%) blur(8px); border:1px solid rgba(0,0,0,.06); border-radius:18px; padding:22px; box-shadow:0 6px 24px rgba(31,46,54,.06); }
+    .kicker{ color:#54656d; font:600 12px/1 Inter, system-ui, sans-serif; letter-spacing:.08em; text-transform:uppercase; }
+    h2{ font-family:"Playfair Display", Georgia, serif; font-weight:700; font-size: clamp(22px, 3vw, 32px); margin:.4em 0 .6em; }
+    h3{ font-family:"Playfair Display", Georgia, serif; font-weight:600; font-size: clamp(18px, 2.2vw, 22px); margin:.2em 0 .2em; }
+    p, li{ font: 400 16px/1.7 Inter, system-ui, sans-serif; color:#2c3b42; }
+    ul{ padding-left: 1.2rem; }
+    .pill{ display:inline-block; padding:6px 10px; border-radius:999px; background: #f3f7f7; border:1px solid rgba(39,55,70,.08); font:600 12px/1 Inter; color:#39515a; }
+    .divider{ height:1px; background:linear-gradient(90deg, transparent, rgba(0,0,0,.08), transparent); margin:28px 0; }
+    .faq dt{ font-weight:600; margin:12px 0 6px; }
+    .faq dd{ margin:0 0 16px; }
+    .note{ font:500 13px/1.5 Inter, system-ui, sans-serif; color:#5b6a70; }
+    /* Active nav helper (only affects this page if you add [data-active="true"]) */
+    .nav a[data-active="true"]{ text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+  </style>
 </head>
 <body>
-<header class="site-header">
-  <div class="container masthead">
-    <a href="/" class="site-title">My Holy Crescendo</a>
+  <!-- Keep the same header/nav markup as index/about. If you don't use includes, paste your existing header here. -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/index.html">
+        <img class="logo" src="/assets/logo.svg" alt="My Holy Crescendo logo" />
+        <span class="brand-text">My Holy Crescendo</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="menu" style="display:flex; gap:18px; list-style:none; margin:0; padding:0;">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/journey.html">Journey</a></li>
+          <li><a href="/prelude.html" data-active="true">Prelude</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <nav class="primary-nav" aria-label="Main">
-      <ul class="menu">
-        <li><a class="nav-link" href="/">Home</a></li>
-        <li><a class="nav-link" href="/about.html">About</a></li>
-        <li><a class="nav-link" href="/journey.html">The Journey</a></li>
-        <li><a class="nav-link is active" href="/free-reflection.html">Free Reflection</a></li>
-        <li><a class="nav-link" href="/contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-  <main>
-    <section class="landing-hero">
-  <div class="container landing-inner">
-    <img src="crescendo-logo.png" alt="Crescendo logo" class="hero-logo">
-    <h1 class="headline">
-      <span class="title-main">Crescendo</span><br>
-      <span class="title-sub">Fearfully &amp; Wonderfully Made</span>
-    </h1>
-    <p class="tag">A Symphony of Grace</p>
-    <p class="lede">Join the next cohort — Tuesdays at 7:30 pm CST</p>
-    <a class="btn btn--gold" id="cta" href="https://forms.gle/2h2CiNYwFbWFPvpW7" target="_blank" rel="noopener">Join the Waitlist</a>
-    <p class="tiny">You’ll get one simple email with next steps. No spam, ever.</p>
-  </div>
-</section>
-
-<div class="freebie-copy">
-  <h2 class="freebie-title">
-    3-Day Prelude to a <span class="script">Symphony of Grace</span>
-  </h2>
-
-  <!-- Add this block -->
-  <ul class="benefits">
-    <li>3 short daily reflections with a gentle practice</li>
-    <li>A printable mini-guide you can keep</li>
-    <li>One small step each day toward peace &amp; beauty</li>
-  </ul>
-
-  <p class="freebie-note tiny">No spam. Unsubscribe anytime.</p>
-</div>
-<!-- ✨ GOLD DIVIDER ✨ -->
-<div class="section-divider">
-  <div class="divider-line"></div>
-  <img src="crescendo-logo.png" alt="Crescendo logo" class="divider-logo">
-  <div class="divider-line"></div>
-</div>
-
-    <section class="mini-about">
+  <main id="main" class="page-prelude">
+    <!-- HERO -->
+    <section class="hero">
       <div class="container">
-        <p class="about">
-          A gentle, faith-filled journey to discover your design — body, mind, and soul — through beauty, mercy, and grace.
-        </p>
+        <div class="eyebrow">Free resource</div>
+        <h1>Prelude to a <em>Symphony of Grace</em></h1>
+        <p class="sub">A gentle 3‑day mini‑journey to slow down, listen, and begin again — the on‑ramp into <strong>Crescendo: Fearfully &amp; Wonderfully Made</strong>.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/thank-you.html">Get the free Prelude</a>
+          <a class="btn btn-ghost" href="mailto:myholycrescendo@gmail.com?subject=Prelude%20Sign%20Up&body=Hi%20Bea%2C%20please%20send%20me%20the%20Prelude%20when%20it%27s%20ready.%20Thank%20you!">Or email me to join</a>
+        </div>
+        <p class="note" style="margin-top:12px;">You'll receive the PDF by email as soon as it's ready. No spam. Unsubscribe anytime.</p>
+      </div>
+    </section>
+
+    <!-- WHAT YOU'LL GET -->
+    <section class="section">
+      <div class="container grid" style="grid-template-columns: repeat(12, 1fr); align-items:start;">
+        <div class="card" style="grid-column: span 7;">
+          <div class="kicker">What you'll receive</div>
+          <h2>A simple rhythm that fits real life</h2>
+          <ul>
+            <li>3 short guided reflections (10–15 minutes each)</li>
+            <li>One Scripture passage with a mini <em>lectio divina</em></li>
+            <li>One gentle daily practice to try</li>
+            <li>Printable pages + light prompts — no pressure, just presence</li>
+            <li>A taste of the beauty &amp; cadence of the full Crescendo journey</li>
+          </ul>
+        </div>
+        <div class="card" style="grid-column: span 5;">
+          <div class="kicker">Who it's for</div>
+          <h2>If you’re feeling…</h2>
+          <ul>
+            <li>Busy, stretched thin, or spiritually "out of tune"</li>
+            <li>Hungry for clarity, beauty, and steadier grace</li>
+            <li>Curious about Crescendo but not ready for the full cohort</li>
+          </ul>
+          <div class="divider"></div>
+          <p class="note">The Prelude is designed for women of faith (all are welcome). Catholic friendly, Scripture‑rooted, and gentle on ramp for anyone seeking renewal.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSIDE THE PRELUDE -->
+    <section class="section" style="background:rgba(255,255,255,.5)">
+      <div class="container">
+        <div class="kicker">Inside the Prelude</div>
+        <h2>Three days, three movements</h2>
+        <div class="grid" style="grid-template-columns: repeat(12, 1fr);">
+          <article class="card" style="grid-column: span 4;">
+            <h3>Day 1 — Tune In</h3>
+            <p>Quiet the noise, breathe, and notice. Reflect with Psalm 139:1‑6, 13‑14 — you are known, seen, and wonderfully made.</p>
+          </article>
+          <article class="card" style="grid-column: span 4;">
+            <h3>Day 2 — Gather the Notes</h3>
+            <p>Name what is beautiful and what is burdened. A simple gratitude + naming practice to bring heart and mind into harmony.</p>
+          </article>
+          <article class="card" style="grid-column: span 4;">
+            <h3>Day 3 — Create a Rest</h3>
+            <p>Set one small, sustainable rhythm of rest. Learn a 5‑minute pause you can keep using after the Prelude ends.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section">
+      <div class="container grid" style="grid-template-columns: repeat(12, 1fr);">
+        <div class="card" style="grid-column: span 6;">
+          <div class="kicker">How it works</div>
+          <h2>Simple and email‑friendly</h2>
+          <ol>
+            <li>Click <strong>Get the free Prelude</strong> and add your email.</li>
+            <li>Receive the PDF + quickstart note (as soon as it’s ready).</li>
+            <li>Pick any 3 days this week and follow the gentle prompts.</li>
+          </ol>
+          <p class="note">You’ll also get early invitations and updates about the next Crescendo cohort. No spam, ever.</p>
+        </div>
+        <div class="card" style="grid-column: span 6;">
+          <div class="kicker">What comes next</div>
+          <h2>From Prelude to Crescendo</h2>
+          <p>If you love the feel of the Prelude, you’re ready for the full journey: <em>Crescendo: Fearfully &amp; Wonderfully Made</em> — a guided, community‑based experience to behold your beauty in the eyes of the Lord.</p>
+          <p class="note">Prefer to start small? Keep repeating the 3‑day cycle — many women find it a life‑giving reset.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="kicker">FAQ</div>
+        <h2 id="faq-heading">Questions you might have</h2>
+        <dl class="faq">
+          <dt>When will I receive the Prelude?</dt>
+          <dd>Soon! Add your email and I’ll send the PDF as soon as it’s ready.</dd>
+          <dt>How long does it take?</dt>
+          <dd>About 10–15 minutes per day, for 3 days. Choose any days that fit your week.</dd>
+          <dt>Is it Catholic?</dt>
+          <dd>Yes — Scripture‑rooted and fully compatible with Catholic faith and prayer. All are welcome.</dd>
+          <dt>Do I need the Crescendo workbook?</dt>
+          <dd>No. The Prelude stands on its own. It’s simply a taste of the full journey.</dd>
+          <dt>What does it cost?</dt>
+          <dd>It’s free.</dd>
+          <dt>Can I share it with a friend?</dt>
+          <dd>Absolutely — please invite her to download her own copy on this page.</dd>
+        </dl>
+        <div class="cta-row" style="margin-top:24px;">
+          <a class="btn btn-primary" href="/thank-you.html">Send me the free Prelude</a>
+          <a class="btn btn-ghost" href="mailto:myholycrescendo@gmail.com?subject=Prelude%20Sign%20Up&body=Hi%20Bea%2C%20please%20send%20me%20the%20Prelude%20when%20it%27s%20ready.%20Thank%20you!">Email instead</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="y"></span> Crescendo · Fearfully &amp; Wonderfully Made</p>
+  <!-- Footer (optional: reuse your site footer include) -->
+  <footer class="site-footer" style="padding:36px 0; border-top:1px solid rgba(0,0,0,.06)">
+    <div class="container" style="display:flex; gap:16px; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+      <small>© <span id="y"></span> My Holy Crescendo</small>
+      <a href="mailto:myholycrescendo@gmail.com" class="pill">myholycrescendo@gmail.com</a>
     </div>
   </footer>
 
   <script>
+    // year stamp
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
