@@ -8,7 +8,7 @@
   <meta property="og:title" content="Prelude to a Symphony of Grace" />
   <meta property="og:description" content="A free 3‑day mini‑journey to slow down, listen, and begin again — your gentle on‑ramp into Crescendo." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="/assets/og-prelude.jpg" />
+  <meta property="og:image" content="/og-image.jpg" />
   <meta name="theme-color" content="#3a6073" />
 
   <!-- Fonts (match the rest of the site) -->
@@ -30,7 +30,15 @@
     .sub{ font: 500 clamp(16px, 2.4vw, 22px)/1.5 Inter, system-ui, sans-serif; color:#31424a; max-width: 48ch; margin: 0 auto; }
     .cta-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:28px; }
     .btn{ display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; border-radius:999px; text-decoration:none; font:600 15px/1 Inter, system-ui, sans-serif; }
-    .btn-primary{ background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:#fff; box-shadow:0 6px 18px rgba(58,96,115,.22); }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 6px 18px rgba(195, 163, 91, 0.25);
+    }
+    .btn-primary:hover {
+      background: #d5b76a; /* slightly lighter gold on hover */
+    }
+
     .btn-ghost{ border:1px solid rgba(39,55,70,.25); color:#273746; background:#fff; }
     .section{ padding: clamp(36px, 5vw, 72px) 0; }
     .grid{ display:grid; gap:22px; grid-template-columns: repeat(12, 1fr); }
@@ -54,7 +62,7 @@
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="/index.html">
-        <img class="logo" src="/assets/logo.svg" alt="My Holy Crescendo logo" />
+        <img class="logo" src="/logo.svg" alt="My Holy Crescendo logo" />
         <span class="brand-text">My Holy Crescendo</span>
       </a>
       <nav aria-label="Primary">
